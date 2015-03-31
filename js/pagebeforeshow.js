@@ -1,6 +1,10 @@
     
     $.mobile.document.on('pagebeforeshow', '#loginPage', function(e){
         e.preventDefault();
+                
+        alert(window.location.href);
+        alert(document.URL);
+        
         if(sessionStorage.authPage){
             console.log("es wird authentifizierung für folgende Seite angefordert: "+sessionStorage.authPage);
             var ticket = (QueryString.ticket) ? QueryString.ticket : '';
@@ -11,7 +15,7 @@
     });
     
     $.mobile.document.on('pagebeforeshow', '#casPage', function(e){
-        e.preventDefault();
+        e.preventDefault(); 
         $("#casContent").empty();
         $("#casContent").append(sessionStorage.validateData);
         var loginform = "";
