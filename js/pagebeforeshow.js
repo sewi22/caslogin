@@ -39,9 +39,7 @@
                     sessionStorage.setItem("validateData", JSON.stringify(result));
                     $(':mobile-pagecontainer').pagecontainer('change', sessionStorage.authPage, {});
                     sessionStorage.removeItem("authPage");    
-                } else {
-                    alert("Validierung fehlgeschlagen");
-                }                
+                }               
             },
             error: function(err){
                 console.log(err);
