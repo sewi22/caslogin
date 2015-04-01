@@ -19,7 +19,7 @@
         //window.plugins.ChildBrowser.openExternal(url, true);
         //window.plugins.ChildBrowser.onLocationChange = function (url) {
         
-        iab = window.open(url, '_self', 'location=yes,hidden=no');
+        iab = window.open(url, '_system', 'location=yes,hidden=no');
         //iab.addEventListener('loadstart', iabLoadStart);
         iab.addEventListener('loadstop', iabLoadStop);
         iab.addEventListener('loaderror', iabLoadError);
