@@ -33,7 +33,7 @@
             alert(randomIntFromInterval(1,99)+': '+event.type + ' - ' + event.url);
             //var urlSuccessPage = "https://cas.thm.de/cas/logout";
             //if(event.url.match(urlSuccessPage)){
-                iab.removeEventListener('loadstop', iabLoadStop);                
+                //iab.removeEventListener('loadstop', iabLoadStop);                
                 iab.close();    
             //}                
         }                           
@@ -50,7 +50,7 @@
             //iab.removeEventListener('loadstart', iabLoadStart);
             //iab.removeEventListener('loadstop', iabLoadStop);
             iab.removeEventListener('loaderror', iabLoadError);
-            iab.removeEventListener('exit', iabExit);    
+            //iab.removeEventListener('exit', iabExit);    
         }
       
         /*
