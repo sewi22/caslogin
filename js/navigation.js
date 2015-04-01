@@ -14,7 +14,8 @@
         //window.location = url+"?url="+homeurl;
         //window.plugins.ChildBrowser.showWebPage(url,{showLocationBar: false, showAddress: false, showNavigationBar: false});
         window.plugins.ChildBrowser.openExternal(url, true);
-        window.plugins.ChildBrowser.onLocationChange = function (url) {
+        //window.plugins.ChildBrowser.onLocationChange = function (url) {
+        window.plugins.ChildBrowser.onOpenExternal = function () {
             //alert('childBrowser has loaded ' + url);
             window.plugins.ChildBrowser.close();
             alert("Erfolgreich ausgeloggt.");
