@@ -19,24 +19,24 @@
         //window.plugins.ChildBrowser.openExternal(url, true);
         //window.plugins.ChildBrowser.onLocationChange = function (url) {
         
-        iab = window.open(url, '_self', 'location=yes,hidden=no');
-        iab.addEventListener('loadstart', iabLoadStart);
+        iab = window.open(url,'_blank','location=yes,hidden=no');
+        //iab.addEventListener('loadstart', iabLoadStart);
         iab.addEventListener('loadstop', iabLoadStop);
         iab.addEventListener('loaderror', iabLoadError);
         iab.addEventListener('exit', iabExit);
         
-        function iabLoadStart(event){
-            alert(event.type + ' - ' + event.url);
-            iab.close();     
-        }
+        //function iabLoadStart(event){
+            //alert(event.type + ' - ' + event.url);
+            //iab.close();     
+        //}
         
         function iabLoadStop(event){
-            alert(randomIntFromInterval(1,99)+': '+event.type + ' - ' + event.url);
+            //alert(randomIntFromInterval(1,99)+': '+event.type + ' - ' + event.url);
             //var urlSuccessPage = "https://cas.thm.de/cas/logout";
-            //if(event.url.match(urlSuccessPage)){
+            if(event.url.match(urlSuccessPage)){
                 //iab.removeEventListener('loadstop', iabLoadStop);                
-                //iab.close();    
-            //}                
+                iab.close();    
+            }                
         }                           
 
         function randomIntFromInterval(min,max){
@@ -47,11 +47,11 @@
             alert(event.type + ' - ' + event.message);    
         }
         function iabExit(event){
-            alert(event.type);
+            //alert(event.type);
             //iab.removeEventListener('loadstart', iabLoadStart);
-            //iab.removeEventListener('loadstop', iabLoadStop);
-            //iab.removeEventListener('loaderror', iabLoadError);
-            //iab.removeEventListener('exit', iabExit);    
+            iab.removeEventListener('loadstop', iabLoadStop);
+            iab.removeEventListener('loaderror', iabLoadError);
+            iab.removeEventListener('exit', iabExit);    
         }
       
         /*
