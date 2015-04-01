@@ -12,7 +12,8 @@
     $.mobile.document.on('touchend click', '#caslogoutbutton', function(e){
         e.preventDefault();
         console.log("Logout from CAS");
-        var url = "https://cas.thm.de/cas/logout"
+        //var url = "https://cas.thm.de/cas/logout"
+        var url = "http://google.com"
         var homeurl = encodeURIComponent("http://phylab.org/app/");        
         //window.location = url+"?url="+homeurl;
         //window.plugins.ChildBrowser.showWebPage(url,{showLocationBar: false, showAddress: false, showNavigationBar: false});
