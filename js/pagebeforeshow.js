@@ -32,7 +32,7 @@
         window.plugins.ChildBrowser.showWebPage(url+"?service="+homeurl,{showLocationBar: false, showAddress: false, showNavigationBar: false});
         window.plugins.ChildBrowser.onLocationChange = function (url) {
             alert('childBrowser has loaded ' + url);            
-            var ticket = (QueryString(url).ticket) ? QueryString(url).ticket : ''; 
+            var ticket = (QueryString.ticket) ? QueryString.ticket : ''; 
             if(ticket){            
                 window.plugins.ChildBrowser.close();
                 alert(ticket);                                
