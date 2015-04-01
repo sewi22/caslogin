@@ -33,12 +33,12 @@
         //window.plugins.ChildBrowser.showWebPage(url+"?service="+homeurl,{showLocationBar: false, showAddress: false, showNavigationBar: false});
         
         var ref = window.open(url+"?service="+homeurl, '_blank', 'location=no,hidden=no');
-        ref.addEventListener(loadstop, function(evt){
+        ref.addEventListener('loadstop', function(evt){
             alert("CAS Login Fenster wurde geladen.");
             alert("URL wurde geladen: "+evt.url);
             //ref.close();
         });
-        ref.addEventListener(exit, function(){
+        ref.addEventListener('exit', function(){
             alert("CAS Login Fenster wurde geschlossen");
         });
         
