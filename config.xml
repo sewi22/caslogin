@@ -4,7 +4,7 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "com.phylab.caslogin"
-        version   = "1.0.3">    
+        version   = "1.0.4">    
 
     <name>CAS Login</name>
 
@@ -65,6 +65,8 @@
     <gap:plugin name="org.apache.cordova.network-information" />
     <gap:plugin name="org.apache.cordova.splashscreen" />
     <gap:plugin name="org.apache.cordova.vibration" />
+    
+    <gap:plugin name="com.phonegap.plugins.childbrowser" version="5.0.0" />
 
     <!-- Third party plugins -->
 

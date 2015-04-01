@@ -10,8 +10,13 @@
         e.preventDefault();
         console.log("Logout from CAS");
         var url = "https://cas.thm.de/cas/logout"
-        var homeurl = encodeURIComponent("http://localhost/caslogintest/");        
-        window.location = url+"?url="+homeurl;
+        var homeurl = encodeURIComponent("http://localhost/caslogin/");        
+        //window.location = url+"?url="+homeurl;
+        window.plugins.ChildBrowser.showWebPage(url+"?url="+homeurl,{});
+        window.plugins.ChildBrowser.onLocationChange = function (url) {
+            alert('childBrowser has loaded ' + url);
+            window.plugins.ChildBrowser.close();
+        };
         
         sessionStorage.removeItem("authPage");
         sessionStorage.removeItem("validateData");                

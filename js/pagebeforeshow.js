@@ -2,8 +2,8 @@
     $.mobile.document.on('pagebeforeshow', '#loginPage', function(e){
         e.preventDefault();
                 
-        alert(window.location.href);
-        alert(document.URL);
+        //alert(window.location.href);
+        //alert(document.URL);
         
         if(sessionStorage.authPage){
             console.log("es wird authentifizierung für folgende Seite angefordert: "+sessionStorage.authPage);
