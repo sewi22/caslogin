@@ -24,11 +24,11 @@
         return false;
     });
         
-    var QueryString = function () {
+    var QueryString = function (url) {
         // This function is anonymous, is executed immediately and 
         // the return value is assigned to QueryString!
         var query_string = {};
-        var query = window.location.search.substring(1);
+        var query = (url) ? url : window.location.search.substring(1);
         var vars = query.split("&");
         for (var i=0;i<vars.length;i++) {
             var pair = vars[i].split("=");

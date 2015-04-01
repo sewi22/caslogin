@@ -32,10 +32,13 @@
         window.plugins.ChildBrowser.showWebPage(url+"?service="+homeurl,{showLocationBar: false, showAddress: false, showNavigationBar: false});
         window.plugins.ChildBrowser.onLocationChange = function (url) {
             //alert('childBrowser has loaded ' + url);            
-            var ticket = (QueryString.ticket) ? QueryString.ticket : ''; 
+            var ticket = (QueryString(url).ticket) ? QueryString(url).ticket : ''; 
             if(ticket){            
                 window.plugins.ChildBrowser.close();
                 alert(ticket);                                
+            } else {
+                //window.plugins.ChildBrowser.close();
+                alert("Kein Ticket gefunden");
             }
             //window.plugins.ChildBrowser.close();
         };        
