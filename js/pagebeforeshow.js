@@ -34,7 +34,7 @@
             alert('childBrowser has loaded ' + url);
             ticket = url.split("ticket=", 2);                        
             if(!ticket[1]){            
-                window.plugins.ChildBrowser.close();
+                //window.plugins.ChildBrowser.close();
                 alert("Kein Ticket gefunden");                
             } else {
                 window.plugins.ChildBrowser.close();
