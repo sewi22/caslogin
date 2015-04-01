@@ -12,7 +12,7 @@
         var url = "https://cas.thm.de/cas/logout"
         var homeurl = encodeURIComponent("http://phylab.org/app/");        
         //window.location = url+"?url="+homeurl;
-        window.plugins.ChildBrowser.showWebPage(url+"?url="+homeurl,{});
+        window.plugins.ChildBrowser.showWebPage(url+"?url="+homeurl,{showLocationBar: false, showAddress: false, showNavigationBar: false});
         window.plugins.ChildBrowser.onLocationChange = function (url) {
             alert('childBrowser has loaded ' + url);
             //window.plugins.ChildBrowser.close();
