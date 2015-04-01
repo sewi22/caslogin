@@ -13,14 +13,17 @@
         e.preventDefault();
         console.log("Logout from CAS");
         //var url = "https://cas.thm.de/cas/logout"
-        var url = "http://google.com"
+        var url = "http://google.com";
         var homeurl = encodeURIComponent("http://phylab.org/app/");        
         //window.location = url+"?url="+homeurl;
         //window.plugins.ChildBrowser.showWebPage(url,{showLocationBar: false, showAddress: false, showNavigationBar: false});
         //window.plugins.ChildBrowser.openExternal(url, true);
         //window.plugins.ChildBrowser.onLocationChange = function (url) {
-        
+        alert("test");
         iab = window.open(url,'_blank','location=yes,hidden=no');
+        setTimeout(function() {
+             iab.close();
+         }, 2500);
         //iab.addEventListener('loadstart', iabLoadStart);
         iab.addEventListener('loadstop', iabLoadStop);
         iab.addEventListener('loaderror', iabLoadError);
