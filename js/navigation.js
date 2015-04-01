@@ -19,7 +19,7 @@
         //window.plugins.ChildBrowser.openExternal(url, true);
         //window.plugins.ChildBrowser.onLocationChange = function (url) {
         
-        iab = window.open(url, '_blank', 'location=no,hidden=no');
+        iab = window.open(url, '_self', 'location=yes,hidden=no');
         //iab.addEventListener('loadstart', iabLoadStart);
         iab.addEventListener('loadstop', iabLoadStop);
         iab.addEventListener('loaderror', iabLoadError);
@@ -49,7 +49,7 @@
             alert(event.type);
             //iab.removeEventListener('loadstart', iabLoadStart);
             //iab.removeEventListener('loadstop', iabLoadStop);
-            iab.removeEventListener('loaderror', iabLoadError);
+            //iab.removeEventListener('loaderror', iabLoadError);
             //iab.removeEventListener('exit', iabExit);    
         }
       
