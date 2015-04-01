@@ -28,6 +28,7 @@
             alert(event.type + ' - ' + event.url);
             var urlSuccessPage = "https://cas.thm.de/cas/logout";
             if(event.url == urlSuccessPage){
+                alert("URL Match");
                 ref.close();    
             }                
         }                           
