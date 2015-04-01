@@ -10,7 +10,7 @@
         e.preventDefault();
         console.log("Logout from CAS");
         var url = "https://cas.thm.de/cas/logout"
-        var homeurl = encodeURIComponent("http://localhost/caslogin/");        
+        var homeurl = encodeURIComponent("http://phylab.org/app/");        
         //window.location = url+"?url="+homeurl;
         window.plugins.ChildBrowser.showWebPage(url+"?url="+homeurl,{});
         window.plugins.ChildBrowser.onLocationChange = function (url) {
