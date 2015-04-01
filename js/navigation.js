@@ -19,8 +19,8 @@
         ref.addEventListener('loadstart', function(e){
             alert("loadstart: "+e.url);            
         });
-        ref.addEventListener('loadstop', function(e){
-            alert("loadstop: "+e.url);            
+        ref.addEventListener('loadstop', function(){
+            //alert("loadstop: "+e.url);            
             //ref.removeEventListener('loadstop', function(){
               //  alert("loadstop eventListener removed");                
             //});
