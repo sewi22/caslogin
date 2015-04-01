@@ -16,22 +16,28 @@
         //window.plugins.ChildBrowser.openExternal(url, true);
         //window.plugins.ChildBrowser.onLocationChange = function (url) {
         var ref = window.open(url, '_blank', 'location=no,hidden=no');
-        ref.addEventListener('loadstart', function(e){
-            //alert("loadstart: "+e.url);            
-        });
-        ref.addEventListener('loadstop', function(){
-            //alert("loadstop: "+e.url);            
-            //ref.removeEventListener('loadstop', function(){
-              //  alert("loadstop eventListener removed");                
-            //});
-            ref.close();                            
-        });
-        ref.addEventListener('loaderror', function(e){
-            //alert("loaderror: " + e.code + " : " + e.message);                                 
-        });
-        ref.addEventListener('exit', function(){
-            alert("exit");
-        });
+        ref.addEventListener('loadstart', refLoadStart);
+        ref.addEventListener('loadstop', refLoadStop);
+        ref.addEventListener('loaderror', refLoadError);
+        ref.addEventListener('exit', refExit);
+        
+        function refLoadStart(event){
+            alert(event.type + ' - ' + event.url);     
+        }
+        function refLoadStop(event){
+            alert(event.type + ' - ' + event.url);
+            ref.close();    
+        }                           
+        function refLoadError(event){
+            alert(event.type + ' - ' + event.message);    
+        }
+        function refExit(event){
+            ref.removeEventListener('loadstart', refLoadStart);
+            ref.removeEventListener('loadstop', refLoadStop);
+            ref.removeEventListener('loaderror', refLoadError);
+            ref.removeEventListener('exit', refExit);    
+        }
+      
         /*
         window.plugins.ChildBrowser.onOpenExternal = function () {
             //alert('childBrowser has loaded ' + url);
