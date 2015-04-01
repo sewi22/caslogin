@@ -31,11 +31,11 @@
         
         function iabLoadStop(event){
             alert(randomIntFromInterval(1,99)+': '+event.type + ' - ' + event.url);
-            var urlSuccessPage = "https://cas.thm.de/cas/logout";
-            if(event.url.match(urlSuccessPage)){
+            //var urlSuccessPage = "https://cas.thm.de/cas/logout";
+            //if(event.url.match(urlSuccessPage)){
                 iab.removeEventListener('loadstop', iabLoadStop);                
                 iab.close();    
-            }                
+            //}                
         }                           
 
         function randomIntFromInterval(min,max){
