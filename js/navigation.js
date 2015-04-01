@@ -16,23 +16,27 @@
         //window.plugins.ChildBrowser.openExternal(url, true);
         //window.plugins.ChildBrowser.onLocationChange = function (url) {
         var ref = window.open(url, '_blank', 'location=no,hidden=no');
-        ref.addEventListener('loadstart', refLoadStart);
+        //ref.addEventListener('loadstart', refLoadStart);
         ref.addEventListener('loadstop', refLoadStop);
         ref.addEventListener('loaderror', refLoadError);
         ref.addEventListener('exit', refExit);
         
-        function refLoadStart(event){
+        //function refLoadStart(event){
             //alert(event.type + ' - ' + event.url);     
-        }
+        //}
         function refLoadStop(event){
             //alert(event.type + ' - ' + event.url);
-            ref.close();    
+            var urlSuccessPage = "https://cas.thm.de/cas/logout";
+            if(event.url == urlSuccessPage){
+                ref.close();    
+            }                
         }                           
+
         function refLoadError(event){
-            //alert(event.type + ' - ' + event.message);    
+            alert(event.type + ' - ' + event.message);    
         }
         function refExit(event){
-            ref.removeEventListener('loadstart', refLoadStart);
+            //ref.removeEventListener('loadstart', refLoadStart);
             ref.removeEventListener('loadstop', refLoadStop);
             ref.removeEventListener('loaderror', refLoadError);
             ref.removeEventListener('exit', refExit);    
