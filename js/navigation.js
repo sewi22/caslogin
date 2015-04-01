@@ -12,7 +12,7 @@
         var url = "https://cas.thm.de/cas/logout"
         var homeurl = encodeURIComponent("http://phylab.org/app/");        
         //window.location = url+"?url="+homeurl;
-        window.plugins.ChildBrowser.showWebPage(url+"?url="+homeurl,{showLocationBar: false, showAddress: false, showNavigationBar: false});
+        window.plugins.ChildBrowser.showWebPage(url,{showLocationBar: false, showAddress: false, showNavigationBar: false});
         window.plugins.ChildBrowser.onLocationChange = function (url) {
             //alert('childBrowser has loaded ' + url);
             window.plugins.ChildBrowser.close();
@@ -27,8 +27,9 @@
     var QueryString = function () {
         // This function is anonymous, is executed immediately and 
         // the return value is assigned to QueryString!
-        var query_string = {};
-        var query = (url) ? url : window.location.search.substring(1);
+        var query_string = {};    
+        //var query = (url) ? url : window.location.search.substring(1);
+        var query = window.location.search.substring(1);
         var vars = query.split("&");
         for (var i=0;i<vars.length;i++) {
             var pair = vars[i].split("=");

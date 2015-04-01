@@ -31,16 +31,15 @@
         //window.location = url+"?service="+homeurl;
         window.plugins.ChildBrowser.showWebPage(url+"?service="+homeurl,{showLocationBar: false, showAddress: false, showNavigationBar: false});
         window.plugins.ChildBrowser.onLocationChange = function (url) {
-            alert('childBrowser has loaded ' + url);            
-            var ticket = (QueryString.ticket) ? QueryString.ticket : ''; 
-            if(ticket){            
+            alert('childBrowser has loaded ' + url);
+            ticket = url.split("ticket=", 2);                        
+            if(!ticket[1]){            
                 window.plugins.ChildBrowser.close();
-                alert(ticket);                                
+                alert("Kein Ticket gefunden");                
             } else {
-                //window.plugins.ChildBrowser.close();
-                alert("Kein Ticket gefunden");
-            }
-            //window.plugins.ChildBrowser.close();
+                window.plugins.ChildBrowser.close();
+                alert("Ticket: "+ticket[1]);
+            }            
         };        
     } 
     
