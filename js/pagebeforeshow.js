@@ -4,14 +4,15 @@
                 
         //alert(window.location.href);
         //alert(document.URL);
-        
+        /*
         if(sessionStorage.authPage){
             console.log("es wird authentifizierung für folgende Seite angefordert: "+sessionStorage.authPage);
             var ticket = (QueryString.ticket) ? QueryString.ticket : '';
             validateTicket(ticket); 
         } else {
             console.log("es liegt keine Authentifizierungsweiterleitung vor.");            
-        }       
+        }
+        */      
     });
     
     $.mobile.document.on('pagebeforeshow', '#casPage', function(e){
@@ -35,10 +36,11 @@
             ticket = url.split("ticket=", 2);                        
             if(!ticket[1]){            
                 //window.plugins.ChildBrowser.close();
-                alert("Kein Ticket gefunden");                
+                //alert("Kein Ticket gefunden");                
             } else {
                 window.plugins.ChildBrowser.close();
-                alert("Ticket: "+ticket[1]);
+                //alert("Ticket: "+ticket[1]);
+                validateTicket(ticket[1]);
             }            
         };        
     } 
