@@ -22,14 +22,14 @@
         ref.addEventListener('exit', refExit);
         
         function refLoadStart(event){
-            alert(event.type + ' - ' + event.url);     
+            //alert(event.type + ' - ' + event.url);     
         }
         function refLoadStop(event){
-            alert(event.type + ' - ' + event.url);
+            //alert(event.type + ' - ' + event.url);
             ref.close();    
         }                           
         function refLoadError(event){
-            alert(event.type + ' - ' + event.message);    
+            //alert(event.type + ' - ' + event.message);    
         }
         function refExit(event){
             ref.removeEventListener('loadstart', refLoadStart);
