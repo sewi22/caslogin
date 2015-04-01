@@ -17,7 +17,7 @@
         //window.plugins.ChildBrowser.onLocationChange = function (url) {
         var ref = window.open(url, '_blank', 'location=no,hidden=no');
         ref.addEventListener('loadstart', function(e){
-            //alert("loadstart: "+e.url);            
+            alert("loadstart: "+e.url);            
         });
         ref.addEventListener('loadstop', function(e){
             alert("loadstop: "+e.url);            
@@ -30,7 +30,7 @@
             //alert("loaderror: " + e.code + " : " + e.message);                                 
         });
         ref.addEventListener('exit', function(){
-            //alert("exit");
+            alert("exit");
         });
         /*
         window.plugins.ChildBrowser.onOpenExternal = function () {
