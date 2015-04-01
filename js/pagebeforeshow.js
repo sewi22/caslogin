@@ -32,7 +32,7 @@
         //window.location = url+"?service="+homeurl;
         window.plugins.ChildBrowser.showWebPage(url+"?service="+homeurl,{showLocationBar: false, showAddress: false, showNavigationBar: false});
         window.plugins.ChildBrowser.onLocationChange = function (url) {
-            alert('childBrowser has loaded ' + url);
+            //alert('childBrowser has loaded ' + url);
             ticket = url.split("ticket=", 2);                        
             if(!ticket[1]){            
                 //window.plugins.ChildBrowser.close();
