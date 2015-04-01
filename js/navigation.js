@@ -25,7 +25,7 @@
             //alert(event.type + ' - ' + event.url);     
         //}
         function refLoadStop(event){
-            //alert(event.type + ' - ' + event.url);
+            alert(event.type + ' - ' + event.url);
             var urlSuccessPage = "https://cas.thm.de/cas/logout";
             if(event.url == urlSuccessPage){
                 ref.close();    
