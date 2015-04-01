@@ -31,7 +31,12 @@
         //window.location = url+"?service="+homeurl;
         window.plugins.ChildBrowser.showWebPage(url+"?service="+homeurl,{});
         window.plugins.ChildBrowser.onLocationChange = function (url) {
-            alert('childBrowser has loaded ' + url);
+            //alert('childBrowser has loaded ' + url);            
+            var ticket = (QueryString.ticket) ? QueryString.ticket : ''; 
+            if(ticket){            
+                window.plugins.ChildBrowser.close();
+                alert(ticket);                                
+            }
             //window.plugins.ChildBrowser.close();
         };        
     } 

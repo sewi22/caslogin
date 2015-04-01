@@ -14,8 +14,9 @@
         //window.location = url+"?url="+homeurl;
         window.plugins.ChildBrowser.showWebPage(url+"?url="+homeurl,{showLocationBar: false, showAddress: false, showNavigationBar: false});
         window.plugins.ChildBrowser.onLocationChange = function (url) {
-            alert('childBrowser has loaded ' + url);
-            //window.plugins.ChildBrowser.close();
+            //alert('childBrowser has loaded ' + url);
+            window.plugins.ChildBrowser.close();
+            alert("Erfolgreich ausgeloggt.");
         };
         
         sessionStorage.removeItem("authPage");
