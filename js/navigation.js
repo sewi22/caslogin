@@ -13,7 +13,7 @@
         var homeurl = encodeURIComponent("http://phylab.org/app/");        
         //window.location = url+"?url="+homeurl;
         //window.plugins.ChildBrowser.showWebPage(url,{showLocationBar: false, showAddress: false, showNavigationBar: false});
-        window.plugins.ChildBrowser.openExternal(url, usePhoneGap);
+        window.plugins.ChildBrowser.openExternal(url, true);
         window.plugins.ChildBrowser.onLocationChange = function (url) {
             //alert('childBrowser has loaded ' + url);
             window.plugins.ChildBrowser.close();
