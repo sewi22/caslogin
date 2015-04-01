@@ -28,7 +28,12 @@
         sessionStorage.setItem("authPage", page);
         var url = "https://cas.thm.de/cas/login"
         var homeurl = encodeURIComponent("http://phylab.org/app/");
-        window.location = url+"?service="+homeurl;        
+        //window.location = url+"?service="+homeurl;
+        window.plugins.ChildBrowser.showWebPage(url+"?service="+homeurl,{});
+        window.plugins.ChildBrowser.onLocationChange = function (url) {
+            alert('childBrowser has loaded ' + url);
+            window.plugins.ChildBrowser.close();
+        };        
     } 
     
     function validateTicket(ticket){
