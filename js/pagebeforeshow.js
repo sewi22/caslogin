@@ -32,7 +32,7 @@
         window.plugins.ChildBrowser.showWebPage(url+"?service="+homeurl,{});
         window.plugins.ChildBrowser.onLocationChange = function (url) {
             alert('childBrowser has loaded ' + url);
-            window.plugins.ChildBrowser.close();
+            //window.plugins.ChildBrowser.close();
         };        
     } 
     
