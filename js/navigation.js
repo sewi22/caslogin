@@ -15,7 +15,7 @@
         //window.plugins.ChildBrowser.showWebPage(url,{showLocationBar: false, showAddress: false, showNavigationBar: false});
         //window.plugins.ChildBrowser.openExternal(url, true);
         //window.plugins.ChildBrowser.onLocationChange = function (url) {
-        var ref = window.open(encodeURI(url), '_blank', 'location=no,hidden=yes');
+        var ref = window.open(url, '_blank', 'location=yes,hidden=no');
         ref.addEventListener(loadstop, function(){
             alert("CAS Logout war erfolgreich.");
             ref.close();                            
