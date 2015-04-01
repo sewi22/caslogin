@@ -31,6 +31,18 @@
         var homeurl = encodeURIComponent("http://phylab.org/app/");
         //window.location = url+"?service="+homeurl;
         //window.plugins.ChildBrowser.showWebPage(url+"?service="+homeurl,{showLocationBar: false, showAddress: false, showNavigationBar: false});
+        
+        var ref = window.open(encodeURI(url+"?service="+homeurl), '_blank', 'location=no,hidden=no');
+        ref.addEventListener(loadstop, function(evt){
+            alert("CAS Login Fenster wurde geladen.");
+            alert("URL wurde geladen: "+evt.url);
+            //ref.close();
+        });
+        ref.addEventListener(exit, function(){
+            alert("CAS Login Fenster wurde geschlossen");
+        });
+        
+        /*
         window.plugins.ChildBrowser.openExternal(url+"?service="+homeurl, true);
         window.plugins.ChildBrowser.onLocationChange = function (url) {
             //alert('childBrowser has loaded ' + url);
@@ -43,7 +55,8 @@
                 //alert("Ticket: "+ticket[1]);
                 validateTicket(ticket[1]);
             }            
-        };        
+        };
+        */        
     } 
     
     function validateTicket(ticket){

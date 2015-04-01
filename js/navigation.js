@@ -13,13 +13,23 @@
         var homeurl = encodeURIComponent("http://phylab.org/app/");        
         //window.location = url+"?url="+homeurl;
         //window.plugins.ChildBrowser.showWebPage(url,{showLocationBar: false, showAddress: false, showNavigationBar: false});
-        window.plugins.ChildBrowser.openExternal(url, true);
+        //window.plugins.ChildBrowser.openExternal(url, true);
         //window.plugins.ChildBrowser.onLocationChange = function (url) {
+        var ref = window.open(encodeURI(url), '_blank', 'location=no,hidden=yes');
+        ref.addEventListener(loadstop, function(){
+            alert("CAS Logout war erfolgreich.");
+            ref.close();                            
+        });
+        ref.addEventListener(exit, function(){
+            alert("CAS Logout Fenster wurde geschlossen");
+        });
+        /*
         window.plugins.ChildBrowser.onOpenExternal = function () {
             //alert('childBrowser has loaded ' + url);
             window.plugins.ChildBrowser.close();
             alert("Erfolgreich ausgeloggt.");
         };
+        */
         
         sessionStorage.removeItem("authPage");
         sessionStorage.removeItem("validateData");                
