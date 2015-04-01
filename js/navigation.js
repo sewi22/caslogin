@@ -16,16 +16,21 @@
         //window.plugins.ChildBrowser.openExternal(url, true);
         //window.plugins.ChildBrowser.onLocationChange = function (url) {
         var ref = window.open(url, '_blank', 'location=no,hidden=no');
-        ref.addEventListener('loadstop', function(evt){
-            alert(evt.url);
-            alert("CAS Logout war erfolgreich.");
-            ref.removeEventListener('loadstop', function(){
-                alert("loadstop eventListener removed");                
-            });
-            ref.close();                            
+        ref.addEventListener('loadstart', function(e){
+            alert("loadstart: "+e.url);            
+        });
+        ref.addEventListener('loadstop', function(e){
+            alert("loadstop: "+e.url);            
+            //ref.removeEventListener('loadstop', function(){
+              //  alert("loadstop eventListener removed");                
+            //});
+            //ref.close();                            
+        });
+        ref.addEventListener('loaderror', function(e){
+            alert("loaderror: " + e.code + " : " + e.message);                                 
         });
         ref.addEventListener('exit', function(){
-            alert("CAS Logout Fenster wird geschlossen");
+            alert("exit");
         });
         /*
         window.plugins.ChildBrowser.onOpenExternal = function () {
