@@ -24,7 +24,7 @@
             //ref.removeEventListener('loadstop', function(){
               //  alert("loadstop eventListener removed");                
             //});
-            //ref.close();                            
+            ref.close();                            
         });
         ref.addEventListener('loaderror', function(e){
             alert("loaderror: " + e.code + " : " + e.message);                                 
