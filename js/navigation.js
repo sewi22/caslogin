@@ -19,10 +19,13 @@
         ref.addEventListener('loadstop', function(evt){
             alert(evt.url);
             alert("CAS Logout war erfolgreich.");
+            ref.removeEventListener('loadstop', function(){
+                alert("loadstop eventListener removed");                
+            });
             ref.close();                            
         });
         ref.addEventListener('exit', function(){
-            alert("CAS Logout Fenster wurde geschlossen");
+            alert("CAS Logout Fenster wird geschlossen");
         });
         /*
         window.plugins.ChildBrowser.onOpenExternal = function () {
