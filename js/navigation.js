@@ -26,13 +26,13 @@
             iab.addEventListener('loaderror', iabLoadError);
             iab.addEventListener('exit', iabExit);
         } catch(e){
-            alert(e);
+            //alert(e);
         }
         //iab = window.open(url,'_blank','location=yes,hidden=no');
         //alert("open");
-        //setTimeout(function() {
-             //iab.close();
-        //}, 2000);
+        setTimeout(function() {
+           console.log("");
+        }, 3000);
         //iab.addEventListener('loadstart', iabLoadStart);
         
         
