@@ -20,14 +20,16 @@
         //window.plugins.ChildBrowser.openExternal(url, true);
         //window.plugins.ChildBrowser.onLocationChange = function (url) {
         //alert("open");
+        iab.addEventListener('loadstop', iabLoadStop);
+        iab.addEventListener('loaderror', iabLoadError);
+        iab.addEventListener('exit', iabExit);
+        
         iab = window.open(url,'_blank','location=yes,hidden=no');
         setTimeout(function() {
              //iab.close();
         }, 2000);
         //iab.addEventListener('loadstart', iabLoadStart);
-        iab.addEventListener('loadstop', iabLoadStop);
-        iab.addEventListener('loaderror', iabLoadError);
-        iab.addEventListener('exit', iabExit);
+
         
         //function iabLoadStart(event){
             //alert(event.type + ' - ' + event.url);
