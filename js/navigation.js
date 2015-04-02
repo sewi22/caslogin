@@ -10,46 +10,16 @@
     });
     
     $.mobile.document.on('touchend', '#caslogoutbutton', function(e){
-        e.preventDefault();
-        console.log("Logout from CAS");
-        var url = "https://cas.thm.de/cas/logout";
-        //var url = "http://google.com";
+        e.preventDefault();        
+        var url = "https://cas.thm.de/cas/logout";        
         var homeurl = encodeURIComponent("http://phylab.org/app/");        
-        //window.location = url+"?url="+homeurl;
-        //window.plugins.ChildBrowser.showWebPage(url,{showLocationBar: false, showAddress: false, showNavigationBar: false});
-        //window.plugins.ChildBrowser.openExternal(url, true);
-        //window.plugins.ChildBrowser.onLocationChange = function (url) {
-        //alert("open");
+        
         try{
-            iab = window.open(url,'_blank','location=yes,hidden=no');
+            iab = window.open(url,'_blank','location=no,hidden=no');
             iab.addEventListener('loadstop', iabLoadStop);
             iab.addEventListener('loaderror', iabLoadError);
             iab.addEventListener('exit', iabExit);
-        } catch(e){
-            //alert(e);
-        }
-        //iab = window.open(url,'_blank','location=yes,hidden=no');
-        //alert("open");
-        //setTimeout(function() {
-        //   console.log("");
-        //}, 3000);
-        //iab.addEventListener('loadstart', iabLoadStart);
-        
-        
-        //function iabLoadStart(event){
-            //alert(event.type + ' - ' + event.url);
-            //iab.close();     
-        //}
-        
-        
-      
-        /*
-        window.plugins.ChildBrowser.onOpenExternal = function () {
-            //alert('childBrowser has loaded ' + url);
-            window.plugins.ChildBrowser.close();
-            alert("Erfolgreich ausgeloggt.");
-        };
-        */
+        } catch(e){}
         
         sessionStorage.removeItem("authPage");
         sessionStorage.removeItem("validateData");                
@@ -57,33 +27,21 @@
     });
     
     function iabLoadStop(event){
-            //alert(randomIntFromInterval(1,99)+': '+event.type + ' - ' + event.url);
-            //var urlSuccessPage = "https://cas.thm.de/cas/logout";
-            //if(event.url.match(urlSuccessPage)){
-                //iab.removeEventListener('loadstop', iabLoadStop);
-                //alert("close");
-                //alert(event.type + ' - ' + event.url);
-                //iab.close();
-            //}
-        }
+        iab.close();            
+    }
 
-        function randomIntFromInterval(min,max){
-            return Math.floor(Math.random()*(max-min+1)+min);
+    function iabLoadError(event){
+        alert(event.type + ' - ' + event.message);
+    }
+    
+    function iabExit(event){
+        if (iab){
+            iab.removeEventListener('loadstop', iabLoadStop);
+            iab.removeEventListener('loaderror', iabLoadError);
+            iab.removeEventListener('exit', iabExit);
+            iab = null;
         }
-
-        function iabLoadError(event){
-            alert(event.type + ' - ' + event.message);
-        }
-        function iabExit(event){
-            //alert(event.type);
-            //iab.removeEventListener('loadstart', iabLoadStart);
-            if (iab){
-                iab.removeEventListener('loadstop', iabLoadStop);
-                iab.removeEventListener('loaderror', iabLoadError);
-                iab.removeEventListener('exit', iabExit);
-                iab = null;
-            }
-        }
+    }
             
     var QueryString = function () {
         // This function is anonymous, is executed immediately and 
