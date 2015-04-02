@@ -8,8 +8,7 @@
     
     $.mobile.document.on('touchend', '#caslogoutbutton', function(e){
         e.preventDefault();        
-        var url = "https://cas.thm.de/cas/logout";        
-        var homeurl = encodeURIComponent("http://phylab.org/app/");        
+        var url = "https://cas.thm.de/cas/logout";                    
         
         var iab = window.open(url,'_blank','location=no,hidden=yes');
         iab.addEventListener('loadstop', function(event){
@@ -20,6 +19,7 @@
         });
         iab.addEventListener('exit', function(event){
             if (iab){iab = null;}
+            alert("Logout erfolgreich.");
         });        
         
         sessionStorage.removeItem("authPage");

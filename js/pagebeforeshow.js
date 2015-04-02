@@ -29,9 +29,15 @@
         sessionStorage.setItem("authPage", page);
         var url = "https://cas.thm.de/cas/login"
         var homeurl = encodeURIComponent("http://phylab.org/app/");
+        var homeurl = encodeURIComponent("PhyLab");
         
         var iab = window.open(url+"?service="+homeurl, '_blank', 'location=no,hidden=no');
-        iab.addEventListener('loadstop', function(evt){    
+        iab.executeScript({
+            code: 'document.getElementsByName("abort").click(){alert("click on Abbrechen")}'            
+        }, function(){
+            
+        });
+        iab.addEventListener('loadstart', function(evt){    
             var ticket = evt.url.split("ticket=", 2);
             if(ticket[1]){
                 iab.close();
