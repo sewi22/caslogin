@@ -33,7 +33,7 @@
         
         var iab = window.open(url+"?service="+homeurl, '_blank', 'location=no,hidden=no');
         iab.executeScript({
-            code: 'document.getElementByName("abort").click(){alert("click on Abbrechen");iab.close();}'            
+            code: 'document.getElementByName("abort").onclick = function(){alert("click on Abbrechen");iab.close();}'            
         }, function(){
             
         });
