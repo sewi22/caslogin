@@ -1,12 +1,11 @@
    
-    $.mobile.document.on('touchend', '#casloginbutton', function(e){
-        e.preventDefault();
-        console.log("Wechsel zum THM CAS Login Formular");        
+    $.mobile.document.on('click', '#casloginbutton', function(e){
+        e.preventDefault();               
         authenticateUser("#casPage");
         return false;        
     });
     
-    $.mobile.document.on('touchend', '#caslogoutbutton', function(e){
+    $.mobile.document.on('click', '#caslogoutbutton', function(e){
         e.preventDefault();        
         var url = "https://cas.thm.de/cas/logout";                    
         

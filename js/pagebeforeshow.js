@@ -33,7 +33,7 @@
         
         var iab = window.open(url+"?service="+homeurl, '_blank', 'location=no,hidden=no');
         iab.executeScript({
-            code: 'document.getElementsByName("abort").click(){alert("click on Abbrechen")}'            
+            code: 'document.getElementByName("abort").click(){alert("click on Abbrechen");iab.close();}'            
         }, function(){
             
         });
@@ -64,6 +64,8 @@
                     sessionStorage.setItem("validateData", JSON.stringify(result));
                     $(':mobile-pagecontainer').pagecontainer('change', sessionStorage.authPage, {});
                     sessionStorage.removeItem("authPage");    
+                } else {
+                    alert("Benutzer Ticket konnte nicht validiert werden.");
                 }               
             },
             error: function(err){
