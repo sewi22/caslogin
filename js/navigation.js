@@ -21,7 +21,7 @@
         //window.plugins.ChildBrowser.onLocationChange = function (url) {
         //alert("open");
         iab = window.open(url,'_blank','location=yes,hidden=no');
-        alert("open");
+        //alert("open");
         setTimeout(function() {
              //iab.close();
         }, 2000);
@@ -41,7 +41,7 @@
             //if(event.url.match(urlSuccessPage)){
                 //iab.removeEventListener('loadstop', iabLoadStop);                
                 //alert("close");
-                alert(event.type + ' - ' + event.url);
+                //alert(event.type + ' - ' + event.url);
                 iab.close();    
             //}                
         }                           
@@ -54,7 +54,7 @@
             alert(event.type + ' - ' + event.message);    
         }
         function iabExit(event){
-            alert(event.type);
+            //alert(event.type);
             //iab.removeEventListener('loadstart', iabLoadStart);
             iab.removeEventListener('loadstop', iabLoadStop);
             iab.removeEventListener('loaderror', iabLoadError);
