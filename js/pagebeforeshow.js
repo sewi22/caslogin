@@ -33,19 +33,19 @@
         
         var iab = window.open(url+"?service="+homeurl, '_blank', 'location=no,hidden=no');
         
-            
-
-        iab.addEventListener('loadstart', function(evt){                
-            iab.executeScript({
-                code: 'document.getElementByName("abort").onclick = function(){alert("click on Abbrechen");iab.close();}'
-            }, function(){
-            });
+        iab.addEventListener('loadstart', function(evt){
             var ticket = evt.url.split("ticket=", 2);
             if(ticket[1]){
                 iab.close();
                 validateTicket(ticket[1]);
-            }                   
+            }
         });
+        iab.addEventListener('loadstop', function(evt){
+            iab.executeScript({
+                code: 'document.getElementsByName("abort")[0].onclick = function(){alert("click on Abbrechen");iab.close();}'
+            }, function(){
+            });
+        });    
         iab.addEventListener('loaderror', function(){
             alert(event.type + ' - ' + event.message);
         });
