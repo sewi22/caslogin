@@ -29,34 +29,21 @@
         sessionStorage.setItem("authPage", page);
         var url = "https://cas.thm.de/cas/login"
         var homeurl = encodeURIComponent("http://phylab.org/app/");
-        //window.location = url+"?service="+homeurl;
-        //window.plugins.ChildBrowser.showWebPage(url+"?service="+homeurl,{showLocationBar: false, showAddress: false, showNavigationBar: false});
         
-        var ref = window.open(url+"?service="+homeurl, '_blank', 'location=no,hidden=no');
-        ref.addEventListener('loadstop', function(evt){
-            alert("CAS Login Fenster wurde geladen.");
-            alert("URL wurde geladen: "+evt.url);
-            //ref.close();
-        });
-        ref.addEventListener('exit', function(){
-            alert("CAS Login Fenster wurde geschlossen");
-        });
-        
-        /*
-        window.plugins.ChildBrowser.openExternal(url+"?service="+homeurl, true);
-        window.plugins.ChildBrowser.onLocationChange = function (url) {
-            //alert('childBrowser has loaded ' + url);
-            ticket = url.split("ticket=", 2);                        
-            if(!ticket[1]){            
-                //window.plugins.ChildBrowser.close();
-                //alert("Kein Ticket gefunden");                
-            } else {
-                window.plugins.ChildBrowser.close();
-                //alert("Ticket: "+ticket[1]);
+        var iab = window.open(url+"?service="+homeurl, '_blank', 'location=no,hidden=no');
+        iab.addEventListener('loadstop', function(evt){    
+            var ticket = evt.url.split("ticket=", 2);
+            if(ticket[1]){
+                iab.close();
                 validateTicket(ticket[1]);
-            }            
-        };
-        */        
+            }                   
+        });
+        iab.addEventListener('loaderror', function(){
+            alert(event.type + ' - ' + event.message);
+        });
+        iab.addEventListener('exit', function(){
+            if (iab){iab = null;}
+        });      
     } 
     
     function validateTicket(ticket){

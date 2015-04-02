@@ -1,8 +1,5 @@
-
-    // Variable refers to InAppBrowser Instance
-    var iab = null;
-
-    $.mobile.document.on('touchend click', '#casloginbutton', function(e){
+   
+    $.mobile.document.on('touchend', '#casloginbutton', function(e){
         e.preventDefault();
         console.log("Wechsel zum THM CAS Login Formular");        
         authenticateUser("#casPage");
@@ -14,34 +11,22 @@
         var url = "https://cas.thm.de/cas/logout";        
         var homeurl = encodeURIComponent("http://phylab.org/app/");        
         
-        try{
-            iab = window.open(url,'_blank','location=no,hidden=no');
-            iab.addEventListener('loadstop', iabLoadStop);
-            iab.addEventListener('loaderror', iabLoadError);
-            iab.addEventListener('exit', iabExit);
-        } catch(e){}
+        var iab = window.open(url,'_blank','location=no,hidden=yes');
+        iab.addEventListener('loadstop', function(event){
+            iab.close();
+        });
+        iab.addEventListener('loaderror', function(event){
+            alert(event.type + ' - ' + event.message);
+        });
+        iab.addEventListener('exit', function(event){
+            if (iab){iab = null;}
+        });        
         
         sessionStorage.removeItem("authPage");
         sessionStorage.removeItem("validateData");                
         return false;
     });
     
-    function iabLoadStop(event){
-        iab.close();            
-    }
-
-    function iabLoadError(event){
-        alert(event.type + ' - ' + event.message);
-    }
-    
-    function iabExit(event){
-        if (iab){
-            iab.removeEventListener('loadstop', iabLoadStop);
-            iab.removeEventListener('loaderror', iabLoadError);
-            iab.removeEventListener('exit', iabExit);
-            iab = null;
-        }
-    }
             
     var QueryString = function () {
         // This function is anonymous, is executed immediately and 
