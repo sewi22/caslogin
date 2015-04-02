@@ -42,8 +42,9 @@
         });
         iab.addEventListener('loadstop', function(evt){
             iab.executeScript({
-                code: 'document.getElementsByName("abort")[0].onclick = function(){alert("click on Abbrechen");}'
-            }, function(iab.close();){
+                code: 'document.getElementsByName("abort")[0].onclick = function(){alert("abbrechen");}'
+            }, function(){
+                iab.close();
             });
         });    
         iab.addEventListener('loaderror', function(){
