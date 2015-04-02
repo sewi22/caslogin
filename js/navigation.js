@@ -20,46 +20,28 @@
         //window.plugins.ChildBrowser.openExternal(url, true);
         //window.plugins.ChildBrowser.onLocationChange = function (url) {
         //alert("open");
-        iab = window.open(url,'_blank','location=yes,hidden=no');
+        try{
+            iab = window.open(url,'_blank','location=yes,hidden=no');
+            iab.addEventListener('loadstop', iabLoadStop);
+            iab.addEventListener('loaderror', iabLoadError);
+            iab.addEventListener('exit', iabExit);
+        } catch(e){
+            alert(e);
+        }
+        //iab = window.open(url,'_blank','location=yes,hidden=no');
         //alert("open");
-        setTimeout(function() {
+        //setTimeout(function() {
              //iab.close();
-        }, 2000);
+        //}, 2000);
         //iab.addEventListener('loadstart', iabLoadStart);
-        iab.addEventListener('loadstop', iabLoadStop);
-        iab.addEventListener('loaderror', iabLoadError);
-        iab.addEventListener('exit', iabExit);
+        
         
         //function iabLoadStart(event){
             //alert(event.type + ' - ' + event.url);
             //iab.close();     
         //}
         
-        function iabLoadStop(event){
-            //alert(randomIntFromInterval(1,99)+': '+event.type + ' - ' + event.url);
-            //var urlSuccessPage = "https://cas.thm.de/cas/logout";
-            //if(event.url.match(urlSuccessPage)){
-                //iab.removeEventListener('loadstop', iabLoadStop);                
-                //alert("close");
-                //alert(event.type + ' - ' + event.url);
-                iab.close();    
-            //}                
-        }                           
-
-        function randomIntFromInterval(min,max){
-            return Math.floor(Math.random()*(max-min+1)+min);
-        }
-
-        function iabLoadError(event){
-            alert(event.type + ' - ' + event.message);    
-        }
-        function iabExit(event){
-            //alert(event.type);
-            //iab.removeEventListener('loadstart', iabLoadStart);
-            iab.removeEventListener('loadstop', iabLoadStop);
-            iab.removeEventListener('loaderror', iabLoadError);
-            iab.removeEventListener('exit', iabExit);    
-        }
+        
       
         /*
         window.plugins.ChildBrowser.onOpenExternal = function () {
@@ -73,7 +55,36 @@
         sessionStorage.removeItem("validateData");                
         return false;
     });
-        
+    
+    function iabLoadStop(event){
+            //alert(randomIntFromInterval(1,99)+': '+event.type + ' - ' + event.url);
+            //var urlSuccessPage = "https://cas.thm.de/cas/logout";
+            //if(event.url.match(urlSuccessPage)){
+                //iab.removeEventListener('loadstop', iabLoadStop);
+                //alert("close");
+                //alert(event.type + ' - ' + event.url);
+                iab.close();
+            //}
+        }
+
+        function randomIntFromInterval(min,max){
+            return Math.floor(Math.random()*(max-min+1)+min);
+        }
+
+        function iabLoadError(event){
+            alert(event.type + ' - ' + event.message);
+        }
+        function iabExit(event){
+            //alert(event.type);
+            //iab.removeEventListener('loadstart', iabLoadStart);
+            if (iab){
+                iab.removeEventListener('loadstop', iabLoadStop);
+                iab.removeEventListener('loaderror', iabLoadError);
+                iab.removeEventListener('exit', iabExit);
+                iab = null;
+            }
+        }
+            
     var QueryString = function () {
         // This function is anonymous, is executed immediately and 
         // the return value is assigned to QueryString!
