@@ -23,7 +23,7 @@
         iab = window.open(url,'_blank','location=yes,hidden=no');
         setTimeout(function() {
              //iab.close();
-        }, 500);
+        }, 2000);
         //iab.addEventListener('loadstart', iabLoadStart);
         iab.addEventListener('loadstop', iabLoadStop);
         iab.addEventListener('loaderror', iabLoadError);
