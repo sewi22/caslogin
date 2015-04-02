@@ -63,7 +63,7 @@
                 //iab.removeEventListener('loadstop', iabLoadStop);
                 //alert("close");
                 //alert(event.type + ' - ' + event.url);
-                iab.close();
+                //iab.close();
             //}
         }
 
