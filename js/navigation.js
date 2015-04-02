@@ -19,7 +19,7 @@
         //window.plugins.ChildBrowser.showWebPage(url,{showLocationBar: false, showAddress: false, showNavigationBar: false});
         //window.plugins.ChildBrowser.openExternal(url, true);
         //window.plugins.ChildBrowser.onLocationChange = function (url) {
-        alert("open");
+        //alert("open");
         iab = window.open(url,'_blank','location=yes,hidden=no');
         setTimeout(function() {
              //iab.close();
@@ -39,7 +39,7 @@
             //var urlSuccessPage = "https://cas.thm.de/cas/logout";
             //if(event.url.match(urlSuccessPage)){
                 //iab.removeEventListener('loadstop', iabLoadStop);                
-                alert("close");
+                //alert("close");
                 iab.close();    
             //}                
         }                           
