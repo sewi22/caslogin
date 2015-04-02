@@ -9,7 +9,7 @@
         return false;        
     });
     
-    $.mobile.document.on('touchend click', '#caslogoutbutton', function(e){
+    $.mobile.document.on('touchend', '#caslogoutbutton', function(e){
         e.preventDefault();
         console.log("Logout from CAS");
         var url = "https://cas.thm.de/cas/logout";
@@ -30,9 +30,9 @@
         }
         //iab = window.open(url,'_blank','location=yes,hidden=no');
         //alert("open");
-        setTimeout(function() {
-           console.log("");
-        }, 3000);
+        //setTimeout(function() {
+        //   console.log("");
+        //}, 3000);
         //iab.addEventListener('loadstart', iabLoadStart);
         
         
