@@ -32,12 +32,14 @@
         var homeurl = encodeURIComponent("PhyLab");
         
         var iab = window.open(url+"?service="+homeurl, '_blank', 'location=no,hidden=no');
-        iab.executeScript({
-            code: 'document.getElementByName("abort").onclick = function(){alert("click on Abbrechen");iab.close();}'            
-        }, function(){
+        
             
         });
-        iab.addEventListener('loadstart', function(evt){    
+        iab.addEventListener('loadstart', function(evt){                
+            iab.executeScript({
+                code: 'document.getElementByName("abort").onclick = function(){alert("click on Abbrechen");iab.close();}'
+            }, function(){
+            
             var ticket = evt.url.split("ticket=", 2);
             if(ticket[1]){
                 iab.close();
