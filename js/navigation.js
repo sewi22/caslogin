@@ -21,9 +21,9 @@
         //window.plugins.ChildBrowser.onLocationChange = function (url) {
         //alert("test");
         iab = window.open(url,'_blank','location=yes,hidden=no');
-        //setTimeout(function() {
-        //     iab.close();
-        // }, 2500);
+        setTimeout(function() {
+             //iab.close();
+        }, 500);
         //iab.addEventListener('loadstart', iabLoadStart);
         iab.addEventListener('loadstop', iabLoadStop);
         iab.addEventListener('loaderror', iabLoadError);
@@ -37,10 +37,10 @@
         function iabLoadStop(event){
             //alert(randomIntFromInterval(1,99)+': '+event.type + ' - ' + event.url);
             //var urlSuccessPage = "https://cas.thm.de/cas/logout";
-            if(event.url.match(urlSuccessPage)){
+            //if(event.url.match(urlSuccessPage)){
                 //iab.removeEventListener('loadstop', iabLoadStop);                
                 iab.close();    
-            }                
+            //}                
         }                           
 
         function randomIntFromInterval(min,max){
