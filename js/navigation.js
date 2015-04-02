@@ -1,10 +1,12 @@
    
+   // TODO: Change Event to touchend
     $.mobile.document.on('click', '#casloginbutton', function(e){
         e.preventDefault();               
         authenticateUser("#casPage");
         return false;        
     });
     
+    // TODO: Change Event to touchend
     $.mobile.document.on('click', '#caslogoutbutton', function(e){
         e.preventDefault();        
         var url = "https://cas.thm.de/cas/logout";                    

@@ -28,7 +28,7 @@
     function authenticateUser(page){
         sessionStorage.setItem("authPage", page);
         var url = "https://cas.thm.de/cas/login"
-        var homeurl = encodeURIComponent("http://phylab.org/app/");
+        //var homeurl = encodeURIComponent("http://phylab.org/app/");
         var homeurl = encodeURIComponent("PhyLab");
         
         var iab = window.open(url+"?service="+homeurl, '_blank', 'location=no,hidden=no');
