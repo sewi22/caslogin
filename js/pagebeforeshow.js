@@ -46,6 +46,9 @@
             });
             
             var loop = setInterval(function(){
+                if(!cordova.plugins.Keyboard.isVisible){
+                    cordova.plugins.Keyboard.show();
+                }
                 iab.executeScript({
                     code:'sessionStorage.getItem("abort");'                    
                 },function(values){

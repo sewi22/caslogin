@@ -4,7 +4,7 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "com.phylab.caslogin"
-        version   = "1.0.78">    
+        version   = "1.0.79">    
 
     <name>CAS Login</name>
 
@@ -66,10 +66,9 @@
     <gap:plugin name="org.apache.cordova.splashscreen" />
     <gap:plugin name="org.apache.cordova.vibration" />
     
-    <gap:plugin name="com.phonegap.plugins.childbrowser" version="5.0.0" />
-
     <!-- Third party plugins -->
-
+    <gap:plugin name="com.ionic.keyboard" version="1.0.3" />
+    
     <!-- Define app icon for each platform. -->
     <icon src="icon.png" />
     <icon src="www/res/icon/android/icon-36-ldpi.png"   gap:platform="android"    gap:qualifier="ldpi" />
@@ -94,7 +93,7 @@
     <gap:splash src="www/res/screen/ios/screen-ipad-portrait.png"           gap:platform="ios"     width="768" height="1024" />
     <gap:splash src="www/res/screen/ios/screen-ipad-landscape.png"          gap:platform="ios"     width="1024" height="768" />
     <gap:splash src="www/res/screen/windows-phone/screen-portrait.jpg"      gap:platform="winphone" />
-
+    
     <!--
         Define access to external domains.
 
