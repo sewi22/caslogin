@@ -42,12 +42,12 @@
         });
         iab.addEventListener('loadstop', function(evt){
             iab.executeScript({
-                code: 'document.getElementsByName("abort")[0].onclick = function(){alert("abbrechen");close();}'
-            }, function(values){
+                code: 'document.getElementsByName("abort")[0].onclick = function(){window.close();}'
+            }, function(){
                 //iab.close();
-                alert(values);
-                alert(values[0]);                
-                alert("callback");
+                //alert(values);
+                //alert(values[0]);                
+                //alert("callback");
             });
         });    
         iab.addEventListener('loaderror', function(){
