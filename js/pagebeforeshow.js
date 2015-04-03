@@ -41,17 +41,31 @@
             }
         });
         iab.addEventListener('loadstop', function(evt){
+            
             iab.executeScript({
                 code: 'document.getElementsByName("abort")[0].onclick = function(){sessionStorage.setItem("abort","yes");}'
+            }, function(){
+                
             });
             
+            /*
+            iab.executeScript({
+                code: 'document.getElementsByName("abort")[0].onclick = function(){sessionStorage.setItem("abort","yes");var loop = setInterval(function(){return sessionStorage.abort;})}'
+            }, function(values){
+                
+            });
+            */
+            
             var loop = setInterval(function(){
-                if(!cordova.plugins.Keyboard.isVisible){
-                    cordova.plugins.Keyboard.show();
-                }
+                //if(!cordova.plugins.Keyboard.isVisible){
+                  //  cordova.plugins.Keyboard.show();
+                //}
                 iab.executeScript({
                     code:'sessionStorage.getItem("abort");'                    
                 },function(values){
+                    if(!cordova.plugins.Keyboard.isVisible){
+                        cordova.plugins.Keyboard.show();
+                    }
                     var abort = values[0];
                     if(abort){                        
                         clearInterval(loop);

@@ -12,7 +12,7 @@
         var url = "https://cas.thm.de/cas/logout";                    
         
         var iab = window.open(url,'_blank','location=no,hidden=yes');
-        iab.addEventListener('loadstop', function(event){
+        iab.addEventListener('loadstart', function(event){
             iab.close();
         });
         iab.addEventListener('loaderror', function(event){
