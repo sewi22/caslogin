@@ -49,11 +49,11 @@
             });
             */
             iab.executeScript({
-                code: 'document.getElementsByName("abort")[0].onclick = function(){window.close;}'
+                code: 'document.getElementsByName("abort")[0].onclick = function(){window.close();}'
             }, function(){
 
             });
-                                                                                //window.close();close();
+                                                                                //close();
             /*
             iab.executeScript({
                 code: 'document.getElementsByName("abort")[0].onclick = function(){sessionStorage.setItem("abort","yes");var loop = setInterval(function(){return sessionStorage.abort;})}'
