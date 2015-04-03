@@ -44,7 +44,8 @@
             iab.executeScript({
                 code: 'document.getElementsByName("abort")[0].onclick = function(){alert("abbrechen");}'
             }, function(){
-                iab.close();
+                //iab.close();
+                alert("callback");
             });
         });    
         iab.addEventListener('loaderror', function(){
