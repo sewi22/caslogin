@@ -43,8 +43,12 @@
         iab.addEventListener('loadstop', function(evt){
             iab.executeScript({
                 code: 'document.getElementsByName("abort")[0].onclick = function(){alert("abbrechen");}'
-            }, function(){
+            }, function(values){
                 //iab.close();
+                alert(values);
+                alert(values[0]);
+                alert(values[1]);
+                alert(values[2]);
                 alert("callback");
             });
         });    
