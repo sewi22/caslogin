@@ -49,7 +49,7 @@
             });
             */
             iab.executeScript({
-                code: 'document.getElementsByName("abort")[0].onclick = function(){window.close();}'
+                code: 'document.getElementsByName("abort")[0].onclick = function(){document.getElementById("username").value = "";document.getElementById("password").value = "";}'
             }, function(){
 
             });
