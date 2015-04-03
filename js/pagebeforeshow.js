@@ -41,13 +41,19 @@
             }
         });
         iab.addEventListener('loadstop', function(evt){
-            
+            /*
             iab.executeScript({
                 code: 'document.getElementsByName("abort")[0].onclick = function(){sessionStorage.setItem("abort","yes");}'
             }, function(){
                 
             });
-            
+            */
+            iab.executeScript({
+                code: 'document.getElementsByName("abort")[0].onclick = function(){window.close;}'
+            }, function(){
+
+            });
+                                                                                //window.close();close();
             /*
             iab.executeScript({
                 code: 'document.getElementsByName("abort")[0].onclick = function(){sessionStorage.setItem("abort","yes");var loop = setInterval(function(){return sessionStorage.abort;})}'
@@ -55,7 +61,7 @@
                 
             });
             */
-            
+            /*
             var loop = setInterval(function(){
                 //if(!cordova.plugins.Keyboard.isVisible){
                   //  cordova.plugins.Keyboard.show();
@@ -72,7 +78,8 @@
                         iab.close();
                     } 
                 });
-            });                            
+            });
+            */                            
         });    
         iab.addEventListener('loaderror', function(){
             alert(event.type + ' - ' + event.message);
