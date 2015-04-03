@@ -42,13 +42,20 @@
         });
         iab.addEventListener('loadstop', function(evt){
             iab.executeScript({
-                code: 'document.getElementsByName("abort")[0].onclick = function(){window.close();}'
-            }, function(){
-                //iab.close();
-                //alert(values);
-                //alert(values[0]);                
-                //alert("callback");
+                code: 'document.getElementsByName("abort")[0].onclick = function(){sessionStorage.setItem("abort","yes");}'
             });
+            
+            var loop = setInterval(function(){
+                iab.executeScript({
+                    code:'sessionStorage.getItem("abort");'                    
+                },function(values){
+                    var abort = values[0];
+                    if(abort){                        
+                        clearInterval(loop);
+                        iab.close();
+                    } 
+                });
+            });                            
         });    
         iab.addEventListener('loaderror', function(){
             alert(event.type + ' - ' + event.message);
